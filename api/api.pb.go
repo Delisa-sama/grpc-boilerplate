@@ -123,6 +123,279 @@ func (x *EchoResponse) GetMessage() string {
 	return ""
 }
 
+type MemoAddRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Memo string `protobuf:"bytes,1,opt,name=memo,proto3" json:"memo,omitempty"`
+}
+
+func (x *MemoAddRequest) Reset() {
+	*x = MemoAddRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_api_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MemoAddRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MemoAddRequest) ProtoMessage() {}
+
+func (x *MemoAddRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_api_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MemoAddRequest.ProtoReflect.Descriptor instead.
+func (*MemoAddRequest) Descriptor() ([]byte, []int) {
+	return file_api_api_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *MemoAddRequest) GetMemo() string {
+	if x != nil {
+		return x.Memo
+	}
+	return ""
+}
+
+type MemoAddResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *MemoAddResponse) Reset() {
+	*x = MemoAddResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_api_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MemoAddResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MemoAddResponse) ProtoMessage() {}
+
+func (x *MemoAddResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_api_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MemoAddResponse.ProtoReflect.Descriptor instead.
+func (*MemoAddResponse) Descriptor() ([]byte, []int) {
+	return file_api_api_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *MemoAddResponse) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type MemoGetRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *MemoGetRequest) Reset() {
+	*x = MemoGetRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_api_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MemoGetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MemoGetRequest) ProtoMessage() {}
+
+func (x *MemoGetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_api_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MemoGetRequest.ProtoReflect.Descriptor instead.
+func (*MemoGetRequest) Descriptor() ([]byte, []int) {
+	return file_api_api_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *MemoGetRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type MemoGetResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Memo string `protobuf:"bytes,1,opt,name=memo,proto3" json:"memo,omitempty"`
+}
+
+func (x *MemoGetResponse) Reset() {
+	*x = MemoGetResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_api_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MemoGetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MemoGetResponse) ProtoMessage() {}
+
+func (x *MemoGetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_api_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MemoGetResponse.ProtoReflect.Descriptor instead.
+func (*MemoGetResponse) Descriptor() ([]byte, []int) {
+	return file_api_api_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *MemoGetResponse) GetMemo() string {
+	if x != nil {
+		return x.Memo
+	}
+	return ""
+}
+
+type MemoListRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *MemoListRequest) Reset() {
+	*x = MemoListRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_api_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MemoListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MemoListRequest) ProtoMessage() {}
+
+func (x *MemoListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_api_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MemoListRequest.ProtoReflect.Descriptor instead.
+func (*MemoListRequest) Descriptor() ([]byte, []int) {
+	return file_api_api_proto_rawDescGZIP(), []int{6}
+}
+
+type MemoListResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Memos []string `protobuf:"bytes,1,rep,name=memos,proto3" json:"memos,omitempty"`
+}
+
+func (x *MemoListResponse) Reset() {
+	*x = MemoListResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_api_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MemoListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MemoListResponse) ProtoMessage() {}
+
+func (x *MemoListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_api_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MemoListResponse.ProtoReflect.Descriptor instead.
+func (*MemoListResponse) Descriptor() ([]byte, []int) {
+	return file_api_api_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *MemoListResponse) GetMemos() []string {
+	if x != nil {
+		return x.Memos
+	}
+	return nil
+}
+
 var File_api_api_proto protoreflect.FileDescriptor
 
 var file_api_api_proto_rawDesc = []byte{
@@ -132,11 +405,34 @@ var file_api_api_proto_rawDesc = []byte{
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x28, 0x0a,
 	0x0c, 0x45, 0x63, 0x68, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a,
 	0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
-	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x32, 0x33, 0x0a, 0x04, 0x45, 0x63, 0x68, 0x6f, 0x12,
-	0x2b, 0x0a, 0x04, 0x45, 0x63, 0x68, 0x6f, 0x12, 0x10, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x45, 0x63,
-	0x68, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x61, 0x70, 0x69, 0x2e,
-	0x45, 0x63, 0x68, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04,
-	0x2f, 0x61, 0x70, 0x69, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x24, 0x0a, 0x0e, 0x4d, 0x65, 0x6d, 0x6f, 0x41,
+	0x64, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6d, 0x65, 0x6d,
+	0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6d, 0x65, 0x6d, 0x6f, 0x22, 0x21, 0x0a,
+	0x0f, 0x4d, 0x65, 0x6d, 0x6f, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64,
+	0x22, 0x20, 0x0a, 0x0e, 0x4d, 0x65, 0x6d, 0x6f, 0x47, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02,
+	0x69, 0x64, 0x22, 0x25, 0x0a, 0x0f, 0x4d, 0x65, 0x6d, 0x6f, 0x47, 0x65, 0x74, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x6d, 0x65, 0x6d, 0x6f, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x04, 0x6d, 0x65, 0x6d, 0x6f, 0x22, 0x11, 0x0a, 0x0f, 0x4d, 0x65, 0x6d,
+	0x6f, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x28, 0x0a, 0x10,
+	0x4d, 0x65, 0x6d, 0x6f, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x14, 0x0a, 0x05, 0x6d, 0x65, 0x6d, 0x6f, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52,
+	0x05, 0x6d, 0x65, 0x6d, 0x6f, 0x73, 0x32, 0x33, 0x0a, 0x04, 0x45, 0x63, 0x68, 0x6f, 0x12, 0x2b,
+	0x0a, 0x04, 0x45, 0x63, 0x68, 0x6f, 0x12, 0x10, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x45, 0x63, 0x68,
+	0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x45,
+	0x63, 0x68, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x9f, 0x01, 0x0a, 0x04,
+	0x4d, 0x65, 0x6d, 0x6f, 0x12, 0x30, 0x0a, 0x03, 0x41, 0x64, 0x64, 0x12, 0x13, 0x2e, 0x61, 0x70,
+	0x69, 0x2e, 0x4d, 0x65, 0x6d, 0x6f, 0x41, 0x64, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x14, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x4d, 0x65, 0x6d, 0x6f, 0x41, 0x64, 0x64, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x03, 0x47, 0x65, 0x74, 0x12, 0x13, 0x2e,
+	0x61, 0x70, 0x69, 0x2e, 0x4d, 0x65, 0x6d, 0x6f, 0x47, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x14, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x4d, 0x65, 0x6d, 0x6f, 0x47, 0x65, 0x74,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x04, 0x4c, 0x69, 0x73, 0x74,
+	0x12, 0x14, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x4d, 0x65, 0x6d, 0x6f, 0x4c, 0x69, 0x73, 0x74, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x4d, 0x65, 0x6d,
+	0x6f, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a,
+	0x04, 0x2f, 0x61, 0x70, 0x69, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -151,16 +447,28 @@ func file_api_api_proto_rawDescGZIP() []byte {
 	return file_api_api_proto_rawDescData
 }
 
-var file_api_api_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_api_api_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_api_api_proto_goTypes = []interface{}{
-	(*EchoRequest)(nil),  // 0: api.EchoRequest
-	(*EchoResponse)(nil), // 1: api.EchoResponse
+	(*EchoRequest)(nil),      // 0: api.EchoRequest
+	(*EchoResponse)(nil),     // 1: api.EchoResponse
+	(*MemoAddRequest)(nil),   // 2: api.MemoAddRequest
+	(*MemoAddResponse)(nil),  // 3: api.MemoAddResponse
+	(*MemoGetRequest)(nil),   // 4: api.MemoGetRequest
+	(*MemoGetResponse)(nil),  // 5: api.MemoGetResponse
+	(*MemoListRequest)(nil),  // 6: api.MemoListRequest
+	(*MemoListResponse)(nil), // 7: api.MemoListResponse
 }
 var file_api_api_proto_depIdxs = []int32{
 	0, // 0: api.Echo.Echo:input_type -> api.EchoRequest
-	1, // 1: api.Echo.Echo:output_type -> api.EchoResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	2, // 1: api.Memo.Add:input_type -> api.MemoAddRequest
+	4, // 2: api.Memo.Get:input_type -> api.MemoGetRequest
+	6, // 3: api.Memo.List:input_type -> api.MemoListRequest
+	1, // 4: api.Echo.Echo:output_type -> api.EchoResponse
+	3, // 5: api.Memo.Add:output_type -> api.MemoAddResponse
+	5, // 6: api.Memo.Get:output_type -> api.MemoGetResponse
+	7, // 7: api.Memo.List:output_type -> api.MemoListResponse
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -196,6 +504,78 @@ func file_api_api_proto_init() {
 				return nil
 			}
 		}
+		file_api_api_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MemoAddRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_api_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MemoAddResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_api_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MemoGetRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_api_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MemoGetResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_api_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MemoListRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_api_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MemoListResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -203,9 +583,9 @@ func file_api_api_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_api_api_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   8,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   2,
 		},
 		GoTypes:           file_api_api_proto_goTypes,
 		DependencyIndexes: file_api_api_proto_depIdxs,
@@ -291,6 +671,150 @@ var _Echo_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Echo",
 			Handler:    _Echo_Echo_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "api/api.proto",
+}
+
+// MemoClient is the client API for Memo service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type MemoClient interface {
+	Add(ctx context.Context, in *MemoAddRequest, opts ...grpc.CallOption) (*MemoAddResponse, error)
+	Get(ctx context.Context, in *MemoGetRequest, opts ...grpc.CallOption) (*MemoGetResponse, error)
+	List(ctx context.Context, in *MemoListRequest, opts ...grpc.CallOption) (*MemoListResponse, error)
+}
+
+type memoClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMemoClient(cc grpc.ClientConnInterface) MemoClient {
+	return &memoClient{cc}
+}
+
+func (c *memoClient) Add(ctx context.Context, in *MemoAddRequest, opts ...grpc.CallOption) (*MemoAddResponse, error) {
+	out := new(MemoAddResponse)
+	err := c.cc.Invoke(ctx, "/api.Memo/Add", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *memoClient) Get(ctx context.Context, in *MemoGetRequest, opts ...grpc.CallOption) (*MemoGetResponse, error) {
+	out := new(MemoGetResponse)
+	err := c.cc.Invoke(ctx, "/api.Memo/Get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *memoClient) List(ctx context.Context, in *MemoListRequest, opts ...grpc.CallOption) (*MemoListResponse, error) {
+	out := new(MemoListResponse)
+	err := c.cc.Invoke(ctx, "/api.Memo/List", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MemoServer is the server API for Memo service.
+type MemoServer interface {
+	Add(context.Context, *MemoAddRequest) (*MemoAddResponse, error)
+	Get(context.Context, *MemoGetRequest) (*MemoGetResponse, error)
+	List(context.Context, *MemoListRequest) (*MemoListResponse, error)
+}
+
+// UnimplementedMemoServer can be embedded to have forward compatible implementations.
+type UnimplementedMemoServer struct {
+}
+
+func (*UnimplementedMemoServer) Add(context.Context, *MemoAddRequest) (*MemoAddResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
+}
+func (*UnimplementedMemoServer) Get(context.Context, *MemoGetRequest) (*MemoGetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (*UnimplementedMemoServer) List(context.Context, *MemoListRequest) (*MemoListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+
+func RegisterMemoServer(s *grpc.Server, srv MemoServer) {
+	s.RegisterService(&_Memo_serviceDesc, srv)
+}
+
+func _Memo_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MemoAddRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MemoServer).Add(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.Memo/Add",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MemoServer).Add(ctx, req.(*MemoAddRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Memo_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MemoGetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MemoServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.Memo/Get",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MemoServer).Get(ctx, req.(*MemoGetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Memo_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MemoListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MemoServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.Memo/List",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MemoServer).List(ctx, req.(*MemoListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _Memo_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "api.Memo",
+	HandlerType: (*MemoServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Add",
+			Handler:    _Memo_Add_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _Memo_Get_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _Memo_List_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

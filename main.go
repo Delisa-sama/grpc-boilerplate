@@ -54,7 +54,8 @@ func main() {
 	logger.Info("db connected")
 
 	s := grpc.NewServer()
-	api.RegisterEchoServer(s, &controllers.EchoController{DB: db})
+	api.RegisterEchoServer(s, &controllers.EchoController{})
+	api.RegisterMemoServer(s, &controllers.MemoController{DB: db})
 
 	if err := s.Serve(lis); err != nil {
 		logger.Fatal(err)
