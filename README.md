@@ -58,8 +58,7 @@ add_soft_deletes = true
 ```
 * Run sqlboiler to generate models from your database schema
 ```shell script
-$ sqlboiler psql --no-tests --no-context --add-soft-deletes
-$ go test ./<YOUR MODELS DIR>
+$ sqlboiler psql <with your flags>
 ```
 
 ## Build binary
@@ -81,7 +80,7 @@ export APP_PORT=8080
 Run the binary
 ```shell script
 source .env
-./grpc-boilerplate
+./main
 ```
 
 ## Run as docker container
