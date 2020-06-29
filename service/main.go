@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Delisa-sama/logger"
+	_ "github.com/lib/pq"
 	"google.golang.org/grpc"
 	"grpc-boilerplate/api"
 	"grpc-boilerplate/config"
