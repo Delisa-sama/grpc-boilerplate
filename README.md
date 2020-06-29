@@ -5,7 +5,10 @@
 ```shell script
 $ go mod download
 ```
-* Install [protobuf compiler](https://github.com/google/protobuf/blob/master/README.md#protocol-compiler-installation)
+* Install [protobuf compiler](https://github.com/google/protobuf/blob/master/README.md#protocol-compiler-installation) from binary or install from apt
+```shell script
+sudo apt install protobuf-compiler
+```
 * Install the protoc Go plugin
  ```shell script
  $ go get -u github.com/golang/protobuf/protoc-gen-go
