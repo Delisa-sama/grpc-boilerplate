@@ -1,6 +1,6 @@
 module grpc-boilerplate
 
-go 1.14
+go 1.13
 
 require (
 	github.com/Delisa-sama/logger v1.3.0
