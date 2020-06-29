@@ -61,3 +61,28 @@ add_soft_deletes = true
 $ sqlboiler psql --no-tests --no-context --add-soft-deletes
 $ go test ./<YOUR MODELS DIR>
 ```
+
+## Build binary
+```shell script
+cd grpc-boilerplate
+go build ./service/main.go
+```
+
+## Run as binary
+(Recommended) Put your environment variables into .env file
+```.env
+export DB_HOST=127.0.0.1
+export DB_NAME=yourdbname
+export DB_USER=yourdbuser
+export DB_PASSWORD=yourdbpassword
+export LOG_LEVEL=INFO
+export APP_PORT=8080
+```
+Run the binary
+```shell script
+source .env
+./grpc-boilerplate
+```
+
+## Run as docker container
+TODO
