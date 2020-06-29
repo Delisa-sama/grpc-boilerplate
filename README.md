@@ -5,6 +5,16 @@
 ```shell script
 $ go mod download
 ```
+* Install [protobuf compiler](https://github.com/google/protobuf/blob/master/README.md#protocol-compiler-installation)
+* Install the protoc Go plugin
+ ```shell script
+ $ go get -u github.com/golang/protobuf/protoc-gen-go
+ ```
+* (Optional) Rebuild the generated Go code
+```shell script
+cd grpc-boilerplate
+protoc --go_out=plugins=grpc:. api/*.proto
+```
 * Install sql-migrate
 ```shell script
 $ go get -v github.com/rubenv/sql-migrate/...
