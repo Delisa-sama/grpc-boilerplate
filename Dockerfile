@@ -1,0 +1,51 @@
+FROM golang:1.14.4 as builder
+
+# Create appuser
+ENV USER=appuser
+ENV UID=10001
+
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "/nonexistent" \
+    --shell "/sbin/nologin" \
+    --no-create-home \
+    --uid "${UID}" \
+    "${USER}"
+
+WORKDIR $GOPATH/src/grpc-boilerplate
+
+COPY . .
+
+# Build the binary
+RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
+      -ldflags='-w -s -extldflags "-static"' -a \
+      -o /go/bin/main ./service/main.go
+
+FROM alpine:latest
+
+# Install git + SSL ca certificates.
+# Git is required for fetching the dependencies.
+# Ca-certificates is required to call HTTPS endpoints.
+RUN apk update && apk add --no-cache git ca-certificates tzdata && update-ca-certificates
+COPY --from=builder /etc/passwd /etc/passwd
+COPY --from=builder /etc/group /etc/group
+
+# Copy our static executable
+COPY --from=builder /go/bin/main /go/bin/main
+
+# Use an unprivileged user.
+USER appuser:appuser
+
+EXPOSE 8080:8080
+
+ENV DB_HOST=127.0.0.10
+ENV DB_PORT=5432
+ENV DB_NAME=dbname
+ENV DB_USER=dbuser
+ENV DB_PASSWORD=dbpassword
+ENV LOG_LEVEL=INFO
+ENV APP_PORT=8080
+
+# Run binary.
+ENTRYPOINT ["/go/bin/main"]

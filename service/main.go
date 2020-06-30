@@ -20,14 +20,18 @@ func main() {
 		panic("failed to get application configuration: " + err.Error())
 	}
 
-	logFile, err := os.OpenFile(cfg.LogPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		panic("Failed to open log file to write")
+	loggerOut := os.Stdout
+
+	if len(cfg.LogPath) <= 0 {
+		loggerOut, err = os.OpenFile(cfg.LogPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		if err != nil {
+			panic("Failed to open log file to write")
+		}
 	}
-	defer logFile.Close()
+	defer loggerOut.Close()
 
 	logger.Init(
-		logger.Output(logFile),
+		logger.Output(loggerOut),
 		logger.Level(cfg.LogLevel),
 	)
 
@@ -49,6 +53,9 @@ func main() {
 
 	db, err := sql.Open(cfg.DB.Dialect, dbURI)
 	if err != nil {
+		logger.Fatal(err)
+	}
+	if err := db.Ping(); err != nil {
 		logger.Fatal(err)
 	}
 
