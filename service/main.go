@@ -4,14 +4,18 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"net"
+	"os"
+	"os/signal"
+	"syscall"
+
 	"github.com/Delisa-sama/logger"
 	_ "github.com/lib/pq"
 	"google.golang.org/grpc"
+
 	"grpc-boilerplate/api"
 	"grpc-boilerplate/config"
 	"grpc-boilerplate/controllers"
-	"net"
-	"os"
 )
 
 func main() {
@@ -65,7 +69,19 @@ func main() {
 	api.RegisterEchoServer(s, &controllers.EchoController{})
 	api.RegisterMemoServer(s, &controllers.MemoController{DB: db})
 
-	if err := s.Serve(lis); err != nil {
-		logger.Fatal(err)
-	}
+	shutdown := make(chan os.Signal, 1)
+	signal.Notify(shutdown, os.Interrupt, syscall.SIGINT, syscall.SIGTERM, syscall.SIGKILL)
+
+	go func() {
+		if err := s.Serve(lis); err != nil && err != grpc.ErrServerStopped {
+			logger.Fatal(err)
+		}
+	}()
+
+	<-shutdown
+	logger.Info("Service stopping")
+
+	s.GracefulStop()
+
+	logger.Info("Service stopped")
 }
