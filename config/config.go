@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+
 	"github.com/Delisa-sama/logger"
 	"github.com/ilyakaznacheev/cleanenv"
 )
