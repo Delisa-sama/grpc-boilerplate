@@ -20,6 +20,7 @@ grpc-boilerplate
 ├── service         // Main service package - runnable
 │   └── main.go
 ├── dbconfig.yml    // Database config-template, configuring via ENV variables
+├── Dockerfile
 ├── .gitignore
 ├── go.mod
 ├── go.sum
