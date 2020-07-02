@@ -10,7 +10,7 @@ import (
 // Config structure
 type Config struct {
 	DB       DBConfig
-	LogPath  string          `env:"LOG_PATH" env-description:"Path to log file. If putted filename only, log file will be created in the same directory as the binary" env-default:"app.log"`
+	LogPath  string          `env:"LOG_PATH" env-description:"Path to log file. If putted filename only, log file will be created in the same directory as the binary" env-default:""`
 	LogLevel logger.LogLevel `env:"LOG_LEVEL" env-description:"Logging level [FATAL, ERROR, WARN, DEBUG, INFO, STASH]" env-default:"WARN"`
 	Host     string          `env:"APP_HOST" env-description:"Address or addr-pattern what will listen to the application" env-default:""`
 	Port     string          `env:"APP_PORT" env-description:"Application port" env-default:"8080"`

@@ -21,12 +21,12 @@ type Config struct {
 
 type EntrypointConfig struct {
 	Host string `env:"ENTRYPOINT_HOST" env-description:"Address or addr-pattern what will listen to the proxy" env-default:""`
-	Port string `env:"ENTRYPOINT_PORT" env-description:"Application port" env-default:"8080"`
+	Port string `env:"ENTRYPOINT_PORT" env-description:"Proxy port" env-default:"8080"`
 }
 
 type EndpointConfig struct {
 	Host string `env:"ENDPOINT_HOST" env-description:"Address of gRPC server (endpoint)" env-required:"true"`
-	Port string `env:"ENDPOINT_PORT" env-description:"Application port" env-required:"true"`
+	Port string `env:"ENDPOINT_PORT" env-description:"gRPC server port" env-required:"true"`
 }
 
 // GetConfig initial configuration from env

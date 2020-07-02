@@ -37,7 +37,6 @@ grpc-boilerplate
 ├── README.md
 ├── sqlboiler.toml            // Configuration file described as an .example
 └── sqlboiler.toml.example
-
 ```
 ## Install
 * Prepare your database (create a new database and role)
@@ -140,3 +139,27 @@ $ ./main
 $ sudo docker build -f Dockerfile.proxy .
 $ sudo docker build -f Dockerfile.service .
 ```
+
+## ENV variables
+### Service
+| ENV         | Status     | Description                                                                                             | Required | Defaults           |
+|-------------|------------|---------------------------------------------------------------------------------------------------------|----------|--------------------|
+| LOG_PATH    | Actual     | Path to log file. If putted filename only, log file will be created in the same directory as the binary | ✘        | "" - stdout        |
+| LOG_LEVEL   | Actual     | Logging level [FATAL, ERROR, WARN, DEBUG, INFO, STASH]                                                  | ✘        | WARN               |
+| APP_HOST    | Actual     | Address or addr-pattern what will listen to the application                                             | ✘        | "" - all addresses |
+| APP_PORT    | Actual     | Application port                                                                                        | ✘        | 8080               |
+| DB_DIALECT  | Actual     | The SQL dialect of your DBMS                                                                            | ✘        | postgres           |
+| DB_HOST     | Actual     | DB address                                                                                              | ✓        |                    |
+| DB_PORT     | Actual     | DB port                                                                                                 | ✓        |                    |
+| DB_USER     | Actual     | DBMS name of the role                                                                                   | ✓        |                    |
+| DB_PASSWORD | Actual     | DBMS auth password                                                                                      | ✓        |                    |
+| DB_NAME     | Actual     | Name of the database                                                                                    | ✓        |                    |
+| DB_CHARSET  | Deprecated | Charset of database                                                                                     |          |                    |
+
+### Proxy
+| ENV             | Status | Description                                           | Required | Defaults           |
+|-----------------|--------|-------------------------------------------------------|----------|--------------------|
+| ENTRYPOINT_HOST | Actual | Address or addr-pattern what will listen to the proxy | ✘        | "" - all addresses |
+| ENTRYPOINT_PORT | Actual | Proxy port                                            | ✘        | 8080               |
+| ENDPOINT_HOST   | Actual | Address of gRPC server (endpoint)                     | ✓        |                    |
+| ENDPOINT_PORT   | Actual | gRPC server port                                      | ✓        |                    |
