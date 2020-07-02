@@ -13,7 +13,7 @@ import (
 	_ "github.com/lib/pq"
 	"google.golang.org/grpc"
 
-	"grpc-boilerplate/api"
+	"grpc-boilerplate/api/v1"
 	"grpc-boilerplate/config"
 	"grpc-boilerplate/controllers"
 )
@@ -66,8 +66,8 @@ func main() {
 	logger.Info("db connected")
 
 	s := grpc.NewServer()
-	api.RegisterEchoServer(s, &controllers.EchoController{})
-	api.RegisterMemoServer(s, &controllers.MemoController{DB: db})
+	v1.RegisterEchoServer(s, &controllers.EchoController{})
+	v1.RegisterMemoServer(s, &controllers.MemoController{DB: db})
 
 	shutdown := make(chan os.Signal, 1)
 	signal.Notify(shutdown, os.Interrupt, syscall.SIGINT, syscall.SIGTERM, syscall.SIGKILL)

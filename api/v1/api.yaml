@@ -1,0 +1,20 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    # Echo service
+    - selector: api.v1.Echo.Echo
+      post: /v1/echo
+      body: "*"
+
+    # Memo service
+    - selector: api.v1.Memo.Add
+      post: /v1/memo
+      body: "*"
+
+    - selector: api.v1.Memo.Get
+      get: /v1/memo/{id}
+
+    - selector: api.v1.Memo.List
+      get: /v1/memo
