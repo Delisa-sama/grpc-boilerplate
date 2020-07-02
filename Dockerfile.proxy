@@ -13,9 +13,9 @@ RUN adduser \
     --uid "${UID}" \
     "${USER}"
 
-WORKDIR $GOPATH/src/grpc-boilerplate/proxy
+WORKDIR $GOPATH/src/grpc-boilerplate/
 
-COPY . .
+COPY proxy .
 
 # Build the binary
 RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \

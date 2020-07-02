@@ -21,12 +21,15 @@ grpc-boilerplate
 │   ├── boil_types.go
 │   ├── memo.go
 │   └── psql_upsert.go
+├── proxy
+│   └── entrypoint.go
 ├── service                   // Main service package - runnable
 │   └── main.go
 ├── tools
 │   └── tools.go
 ├── dbconfig.yml              // Database config-template, configuring via ENV variables
-├── Dockerfile
+├── Dockerfile.proxy
+├── Dockerfile.service
 ├── .gitignore
 ├── go.mod
 ├── go.sum
@@ -34,6 +37,7 @@ grpc-boilerplate
 ├── README.md
 ├── sqlboiler.toml            // Configuration file described as an .example
 └── sqlboiler.toml.example
+
 ```
 ## Install
 * Prepare your database (create a new database and role)
@@ -131,8 +135,8 @@ $ source .env
 $ ./main
 ```
 
-## Run as docker container
+## Build as docker container
 ```shell script
-$ sudo docker build .
-$ sudo docker run <IMAGE>
+$ sudo docker build -f Dockerfile.proxy .
+$ sudo docker build -f Dockerfile.service .
 ```
