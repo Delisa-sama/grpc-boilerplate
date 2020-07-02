@@ -26,7 +26,7 @@ func main() {
 
 	loggerOut := os.Stdout
 
-	if len(cfg.LogPath) <= 0 {
+	if len(cfg.LogPath) > 0 {
 		loggerOut, err = os.OpenFile(cfg.LogPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 		if err != nil {
 			panic("Failed to open log file to write")
