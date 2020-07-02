@@ -13,14 +13,14 @@ RUN adduser \
     --uid "${UID}" \
     "${USER}"
 
-WORKDIR $GOPATH/src/grpc-boilerplate
+WORKDIR $GOPATH/src/grpc-boilerplate/proxy
 
 COPY . .
 
 # Build the binary
 RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
       -ldflags='-w -s -extldflags "-static"' -a \
-      -o /go/bin/main ./service/main.go
+      -o /go/bin/main ./proxy/entrypoint.go
 
 FROM alpine:latest
 
