@@ -8,7 +8,7 @@ import (
 
 // Config structure
 type Config struct {
-	Entrypoint EndpointConfig
+	Entrypoint EntrypointConfig
 	Endpoint   EndpointConfig
 }
 
