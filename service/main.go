@@ -10,8 +10,13 @@ import (
 	"syscall"
 
 	"github.com/Delisa-sama/logger"
+	"github.com/grpc-ecosystem/go-grpc-middleware"
+	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
+	grpc_opentracing "github.com/grpc-ecosystem/go-grpc-middleware/tracing/opentracing"
 	_ "github.com/lib/pq"
 	"google.golang.org/grpc"
+	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/opentracer"
+	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
 
 	"grpc-boilerplate/api/v1"
 	"grpc-boilerplate/config"
@@ -65,7 +70,15 @@ func main() {
 
 	logger.Info("db connected")
 
-	s := grpc.NewServer()
+	s := grpc.NewServer(grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
+		grpc_opentracing.UnaryServerInterceptor(grpc_opentracing.WithTracer(opentracer.New(
+			tracer.WithAnalytics(true),
+			tracer.WithServiceName(cfg.Name),
+			tracer.WithServiceVersion(cfg.Version),
+			tracer.WithEnv(cfg.Environment),
+		))),
+		grpc_recovery.UnaryServerInterceptor(),
+	)))
 	v1.RegisterEchoServer(s, &controllers.EchoController{})
 	v1.RegisterMemoServer(s, &controllers.MemoController{DB: db})
 
