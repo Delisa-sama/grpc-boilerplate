@@ -2,7 +2,7 @@
 // source: api/v1/api.proto
 
 /*
-Package v1 is a reverse proxy.
+Package v1 is a reverse gateway.
 
 It translates gRPC into RESTful JSON APIs.
 */

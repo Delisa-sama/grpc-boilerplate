@@ -20,7 +20,7 @@ type Config struct {
 }
 
 type EntrypointConfig struct {
-	Host string `env:"ENTRYPOINT_HOST" env-description:"Address or addr-pattern what will listen to the proxy" env-default:""`
+	Host string `env:"ENTRYPOINT_HOST" env-description:"Address or addr-pattern what will listen to the gateway" env-default:""`
 	Port string `env:"ENTRYPOINT_PORT" env-description:"Proxy port" env-default:"8080"`
 }
 
@@ -61,7 +61,7 @@ func run(cfg *Config) error {
 		return err
 	}
 
-	// Start HTTP server (and proxy calls to gRPC server endpoint)
+	// Start HTTP server (and gateway calls to gRPC server endpoint)
 	proxyEntrypoint := fmt.Sprintf("%s:%s", cfg.Entrypoint.Host, cfg.Entrypoint.Port)
 	return http.ListenAndServe(proxyEntrypoint, mux)
 }
@@ -69,7 +69,7 @@ func run(cfg *Config) error {
 func main() {
 	cfg, err := GetConfig()
 	if err != nil {
-		panic("failed to get proxy configuration: " + err.Error())
+		panic("failed to get gateway configuration: " + err.Error())
 	}
 	defer glog.Flush()
 
