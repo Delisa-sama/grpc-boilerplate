@@ -47,13 +47,13 @@ dependencies:
 migrate:
 	sql-migrate up
 
-build: service-build proxy-build
+build: service-build gateway-build
 
 service-build:
 	go build ./service/main.go
 
-proxy-build:
-	go build ./proxy/entrypoint.go
+gateway-build:
+	go build ./gateway/gateway.go
 
 service-proto: tools
 	protoc -I. --go_out=plugins=grpc,paths=source_relative:. api/$(API_VER)/*.proto
@@ -61,10 +61,10 @@ service-proto: tools
 docs-proto: tools
 	protoc -I. --swagger_out=logtostderr=true,grpc_api_configuration=api/$(API_VER)/api.yaml:. api/$(API_VER)/*.proto
 
-proxy-proto: tools
+gateway-proto: tools
 	protoc -I. --grpc-gateway_out=logtostderr=true,paths=source_relative,grpc_api_configuration=api/$(API_VER)/api.yaml:. api/$(API_VER)/*.proto
 
-proto: service-proto proxy-proto docs-proto
+proto: service-proto gateway-proto docs-proto
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
