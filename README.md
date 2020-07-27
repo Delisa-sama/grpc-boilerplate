@@ -133,6 +133,7 @@ Run the binary
 ```shell script
 $ source .env
 $ ./main
+$ ./gateway
 ```
 
 ## Build as docker container
