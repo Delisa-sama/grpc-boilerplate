@@ -70,5 +70,5 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 clean:
-	rm -f main entrypoint coverage.out api/$(API_VER)/*.pb.go api/$(API_VER)/*.pb.gw.go api/$(API_VER)/*.swagger.json
+	rm -f main gateway coverage.out api/$(API_VER)/*.pb.go api/$(API_VER)/*.pb.gw.go api/$(API_VER)/*.swagger.json
 	rm -rf models
